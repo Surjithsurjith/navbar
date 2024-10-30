@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #img1{
+        height:50px;
+        width:50px;
+        position: relative;
+        opacity: 0.3;
+        clip-path: circle();
+        
+    }
+    #img2{
+        height:50px;
+        width: 50px;
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        opacity: 0.3;
+        clip-path: circle();
+    }
+   
+</style>
+<body>
+    <img src="image/blue-circle.gif" id="img1">
+    <img src="image/light circle.gif" id="img2">
+    
+</body>
+<script src="jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        function loop(){
+            $("#img1").animate({
+                left:'1000px',
+                top:'400px',
+                opacity:1,
+                height:'200px',
+                width:'200px'
+            },2000,function(){
+                $("#img1").animate({
+                    left:'0px',
+                    top:'0px',
+                    opacity:0.3,
+                    height:'50px',
+                    width:'50px'
+                },2000)
+                loop();
+            })
+            $("#img2").animate({
+            right:'1000px',
+            top:'400px',
+            height:'200px',
+            width:'200px',
+            opacity:1,
+        },2000,function(){
+            $("#img2").animate({
+                right:'0px',
+                top:'0px',
+                opacity:0.3,
+                height:'50px',
+                width:'50px'
+            },2000)
+            loop();
+        })
+        }
+        loop();
+        });
+    
+    
+</script>
+</html>
